@@ -1,52 +1,66 @@
-# Proyecto: Análisis de Tarifas de Prepago en Megaline
+# Análisis de Eficiencia de Operadores en Servicio Telefónico Virtual  
 
-## Descripción General
-Trabajas como analista para **Megaline**, un operador de telecomunicaciones que ofrece dos tarifas de prepago: **Surf** y **Ultimate**. El objetivo de este proyecto es **determinar cuál de los dos planes genera más ingresos**, ayudando al departamento comercial a ajustar su presupuesto de publicidad. Se trabajará con un conjunto de datos de **500 clientes** que incluye información sobre sus llamadas, mensajes y uso de internet en 2018.
+## Contexto  
+Este proyecto busca evaluar el desempeño de operadores en un servicio de telefonía virtual mediante el análisis de métricas clave como:  
+- Total de llamadas realizadas y recibidas.  
+- Duración promedio de las llamadas.  
+- Número de llamadas perdidas.  
+- Tiempo promedio de espera.  
+- Clasificación de llamadas en entrantes y salientes.  
 
-## Objetivo del Proyecto
-El análisis se centrará en el comportamiento de los clientes en función de la tarifa que utilizan y se realizarán **pruebas estadísticas** para determinar qué plan, en promedio, aporta más ingresos a la empresa. El resultado permitirá **optimizar la estrategia comercial** de Megaline.
+El análisis tiene como objetivo optimizar la eficiencia operativa y mejorar la calidad del servicio ofrecido.  
 
-## Descripción de las Tarifas:
+## Herramientas Utilizadas  
 
-### 1. **Surf**:
-- Pago mensual: **20$**.
-- Incluye: **500 minutos**, **50 SMS** y **15 GB de datos**.
-- Costos adicionales:
-  - 1 minuto extra: **3 centavos**.
-  - 1 SMS extra: **3 centavos**.
-  - 1 GB extra: **10$**.
+### Lenguaje de Programación  
+- **Python**  
 
-### 2. **Ultimate**:
-- Pago mensual: **70$**.
-- Incluye: **3000 minutos**, **1000 SMS** y **30 GB de datos**.
-- Costos adicionales:
-  - 1 minuto extra: **1 centavo**.
-  - 1 SMS extra: **1 centavo**.
-  - 1 GB extra: **7$**.
+### Bibliotecas de Python  
+- **pandas**: Manipulación y análisis de datos.  
+- **matplotlib** y **seaborn**: Creación de visualizaciones.  
+- **scikit-learn**: Construcción y evaluación de modelos predictivos.  
+- **scipy**: Pruebas estadísticas y validación de hipótesis.  
 
-### Notas sobre el Cobro:
-- Las llamadas se redondean al minuto más cercano.
-- El uso de internet se redondea al gigabyte más cercano al final del mes.
+### Software de Visualización  
+- **Tableau**: Generación de visualizaciones avanzadas para análisis y presentación de resultados.  
+- **Jupyter Notebook**: Ejecución del código y documentación interactiva del proyecto.  
 
-## Diccionario de Datos
-El análisis utiliza cinco tablas distintas que contienen información sobre los clientes, sus llamadas, mensajes, sesiones web y las tarifas. 
+## Análisis de Resultados  
 
-### 1. **users** (Datos sobre los usuarios):
+### Transformación de Datos  
+Se realizaron los siguientes procesos:  
+1. **Estandarización y normalización** de variables relevantes para garantizar uniformidad en el análisis.  
+2. **Categorización de operadores** en "eficientes" e "ineficientes" con base en:  
+   - Número de llamadas perdidas.  
+   - Tiempo de espera en llamadas entrantes.  
+   - Número de llamadas salientes realizadas.  
 
-### 2. **calls** (Datos sobre las llamadas):
+### Análisis Exploratorio de Datos  
+- Gráficos como histogramas, diagramas de dispersión y gráficos de barras ayudaron a identificar patrones y tendencias clave.  
+- Mapas de calor revelaron correlaciones entre variables como duración promedio y llamadas perdidas.  
 
-### 3. **messages** (Datos sobre los SMS):
+### Prueba A/B  
+Se realizó una prueba t de dos muestras para comparar operadores clasificados como "eficientes" e "ineficientes" en términos de llamadas perdidas.  
 
-### 4. **internet** (Datos sobre las sesiones web):
+### Modelado de Datos  
+- Se entrenaron modelos de **regresión logística** y **árboles de decisión** para predecir la eficiencia de los operadores.  
+- Las métricas de evaluación incluyeron precisión, recall y accuracy para determinar el rendimiento de los modelos.  
 
-### 5. **plans** (Datos sobre las tarifas):
+## Conclusiones  
 
-## Contenido del Proyecto:
-- **Carga y previsualización de datos**: Verificación de la estructura y contenido del conjunto de datos.
-- **Limpieza de datos**: Manejo de valores ausentes y duplicados.
-- **Análisis exploratorio**: Estudio del comportamiento de los clientes según su tarifa y uso.
-- **Pruebas estadísticas**: Comparación de los ingresos generados por las tarifas mediante técnicas estadísticas.
-- **Conclusiones**: Determinación del plan más rentable en términos de ingresos generados.
+### Resultados  
+1. **Prueba A/B**: Se confirmó una diferencia significativa en el número de llamadas perdidas entre operadores eficientes e ineficientes, validando la hipótesis inicial.  
+2. **Modelos Predictivos**: La regresión logística demostró ser particularmente efectiva para clasificar operadores, mientras que los árboles de decisión facilitaron interpretaciones más claras.  
 
-## Conclusión:
-El análisis permitirá a **Megaline** tomar decisiones informadas sobre cuál tarifa genera más ingresos, optimizando así su estrategia de marketing y presupuesto de publicidad.
+### Impacto y Recomendaciones  
+- Se identificaron áreas críticas para intervención, como la capacitación de operadores con bajo rendimiento.  
+- Se sugirió implementar alertas tempranas basadas en modelos predictivos para mitigar problemas de eficiencia.  
+
+## Visualización  
+Las visualizaciones generadas en Python y Tableau proporcionaron información clave para comunicar los hallazgos a las partes interesadas, incluyendo:  
+- Comparaciones gráficas de llamadas perdidas.  
+- Diagramas que resaltan las diferencias en tiempo de espera y llamadas salientes.  
+- Mapas de calor que muestran correlaciones entre métricas críticas.  
+
+## Conclusión General  
+Este proyecto demostró cómo el análisis de datos puede ser una herramienta poderosa para mejorar la eficiencia operativa en servicios de telefonía virtual. Los resultados no solo validaron la hipótesis inicial, sino que también ofrecieron una guía clara para la implementación de mejoras estratégicas.  
