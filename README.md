@@ -1,66 +1,46 @@
-# Análisis de Eficiencia de Operadores en Servicio Telefónico Virtual  
+# Proyecto: Análisis de Tarifas de Prepago en Megaline  
 
 ## Contexto  
-Este proyecto busca evaluar el desempeño de operadores en un servicio de telefonía virtual mediante el análisis de métricas clave como:  
-- Total de llamadas realizadas y recibidas.  
-- Duración promedio de las llamadas.  
-- Número de llamadas perdidas.  
-- Tiempo promedio de espera.  
-- Clasificación de llamadas en entrantes y salientes.  
-
-El análisis tiene como objetivo optimizar la eficiencia operativa y mejorar la calidad del servicio ofrecido.  
+Megaline, un operador de telecomunicaciones, ofrece dos tarifas de prepago: **Surf** y **Ultimate**. El objetivo principal de este proyecto es analizar cuál de estas tarifas genera mayores ingresos, proporcionando datos esenciales para que el departamento comercial pueda optimizar su presupuesto publicitario. El análisis se basa en datos recopilados de 500 clientes durante 2018, los cuales incluyen detalles sobre llamadas, mensajes de texto y uso de internet.  
 
 ## Herramientas Utilizadas  
-
-### Lenguaje de Programación  
-- **Python**  
-
-### Bibliotecas de Python  
-- **pandas**: Manipulación y análisis de datos.  
-- **matplotlib** y **seaborn**: Creación de visualizaciones.  
-- **scikit-learn**: Construcción y evaluación de modelos predictivos.  
-- **scipy**: Pruebas estadísticas y validación de hipótesis.  
-
-### Software de Visualización  
-- **Tableau**: Generación de visualizaciones avanzadas para análisis y presentación de resultados.  
-- **Jupyter Notebook**: Ejecución del código y documentación interactiva del proyecto.  
+- **Python:** Para la limpieza, exploración y análisis de datos.  
+- **Pandas:** Manejo y manipulación de grandes volúmenes de datos.  
+- **NumPy:** Operaciones matemáticas y estadística.  
+- **Matplotlib y Seaborn:** Visualización gráfica de los resultados.  
+- **Scipy.stats:** Realización de pruebas estadísticas como la prueba t y ANOVA.  
 
 ## Análisis de Resultados  
+### 1. **Exploración Inicial**  
+- Se analizaron las cinco tablas disponibles:  
+  1. **users:** Información general de los clientes.  
+  2. **calls:** Detalles sobre las llamadas realizadas.  
+  3. **messages:** Registro de los mensajes enviados.  
+  4. **internet:** Sesiones de uso de datos.  
+  5. **plans:** Descripción de las tarifas disponibles.  
 
-### Transformación de Datos  
-Se realizaron los siguientes procesos:  
-1. **Estandarización y normalización** de variables relevantes para garantizar uniformidad en el análisis.  
-2. **Categorización de operadores** en "eficientes" e "ineficientes" con base en:  
-   - Número de llamadas perdidas.  
-   - Tiempo de espera en llamadas entrantes.  
-   - Número de llamadas salientes realizadas.  
+- Se realizó una verificación inicial de los datos para identificar valores ausentes, duplicados y posibles inconsistencias en los formatos.  
 
-### Análisis Exploratorio de Datos  
-- Gráficos como histogramas, diagramas de dispersión y gráficos de barras ayudaron a identificar patrones y tendencias clave.  
-- Mapas de calor revelaron correlaciones entre variables como duración promedio y llamadas perdidas.  
+### 2. **Limpieza de Datos**  
+- Los valores nulos se manejaron mediante imputación o eliminación según el contexto.  
+- Se eliminaron duplicados y se estandarizaron las unidades de medida.  
+- El uso de minutos y datos se redondeó según las reglas de cobro de Megaline: minutos y gigabytes se aproximan al entero más cercano.  
 
-### Prueba A/B  
-Se realizó una prueba t de dos muestras para comparar operadores clasificados como "eficientes" e "ineficientes" en términos de llamadas perdidas.  
+### 3. **Comportamiento del Cliente**  
+- Se identificaron patrones en el uso de minutos, mensajes y datos.  
+  - Los clientes de **Surf** tienden a superar con frecuencia los límites incluidos en su plan.  
+  - Los clientes de **Ultimate**, debido a su capacidad ampliada, no suelen generar cargos adicionales.  
+- Se evaluaron ingresos promedio por cliente en ambos planes, incluyendo pagos mensuales y costos por excedentes.  
 
-### Modelado de Datos  
-- Se entrenaron modelos de **regresión logística** y **árboles de decisión** para predecir la eficiencia de los operadores.  
-- Las métricas de evaluación incluyeron precisión, recall y accuracy para determinar el rendimiento de los modelos.  
+### 4. **Pruebas Estadísticas**  
+- Se realizó una comparación de los ingresos promedio utilizando una prueba t de dos muestras para verificar diferencias significativas.  
+- Se complementó con un análisis ANOVA para evaluar las variaciones en ingresos entre subgrupos de usuarios con diferentes comportamientos.  
+- Los resultados mostraron que, aunque **Ultimate** tiene un mayor costo fijo, **Surf** genera ingresos significativos a través de cargos adicionales.  
 
 ## Conclusiones  
+El análisis reveló que el plan **Surf** genera mayores ingresos promedio por cliente debido a los cargos adicionales aplicados por excedentes. Esto sugiere que el departamento de marketing debería considerar las siguientes recomendaciones:  
+- Enfocar campañas publicitarias en destacar el plan **Surf**, especialmente para clientes con patrones de uso intensivo.  
+- Reevaluar las tarifas y límites incluidos en **Ultimate** para hacerlo más competitivo.  
+- Optimizar la estrategia de retención de clientes para ambos planes, destacando los beneficios específicos que ofrecen.  
 
-### Resultados  
-1. **Prueba A/B**: Se confirmó una diferencia significativa en el número de llamadas perdidas entre operadores eficientes e ineficientes, validando la hipótesis inicial.  
-2. **Modelos Predictivos**: La regresión logística demostró ser particularmente efectiva para clasificar operadores, mientras que los árboles de decisión facilitaron interpretaciones más claras.  
-
-### Impacto y Recomendaciones  
-- Se identificaron áreas críticas para intervención, como la capacitación de operadores con bajo rendimiento.  
-- Se sugirió implementar alertas tempranas basadas en modelos predictivos para mitigar problemas de eficiencia.  
-
-## Visualización  
-Las visualizaciones generadas en Python y Tableau proporcionaron información clave para comunicar los hallazgos a las partes interesadas, incluyendo:  
-- Comparaciones gráficas de llamadas perdidas.  
-- Diagramas que resaltan las diferencias en tiempo de espera y llamadas salientes.  
-- Mapas de calor que muestran correlaciones entre métricas críticas.  
-
-## Conclusión General  
-Este proyecto demostró cómo el análisis de datos puede ser una herramienta poderosa para mejorar la eficiencia operativa en servicios de telefonía virtual. Los resultados no solo validaron la hipótesis inicial, sino que también ofrecieron una guía clara para la implementación de mejoras estratégicas.  
+Estas conclusiones proporcionan una base sólida para la toma de decisiones estratégicas que maximizan la rentabilidad y mejoran la experiencia del cliente.  
